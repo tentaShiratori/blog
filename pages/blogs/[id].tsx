@@ -13,7 +13,7 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   const res = await contentfulClient.getEntries();
   return {
     paths: res.items.map(
-      (item) => pagesPath.blogs._id(item.sys.id).$url().pathname
+      (item) => pagesPath.blogs.$url().pathname + "/" + item.sys.id
     ), //indicates that no page needs be created at build time
     fallback: "blocking", //indicates the type of fallback
   };
