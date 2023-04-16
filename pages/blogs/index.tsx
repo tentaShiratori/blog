@@ -12,7 +12,8 @@ export const getStaticProps: GetStaticProps<{
 }> = async (context) => {
   try {
     const res = await contentfulClient.getEntries({
-      order: "sys.createdAt" as "sys.createdAt",
+      // @ts-expect-error
+      order: "sys.createdAt",
     });
     return {
       props: {
