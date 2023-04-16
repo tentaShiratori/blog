@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps<{
         items: res.items.map((item) => {
           return {
             id: item.sys.id,
-            title: item.fields["title"],
+            title: item.fields["title"] as string,
           };
         }),
       },
